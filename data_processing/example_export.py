@@ -17,6 +17,7 @@ from openpyxl.styles.borders import Border, Side
 from openpyxl.styles import Font
 
 import csv
+import pandas as pd
 
 export_records = []
 
@@ -100,5 +101,10 @@ print('Exported JSON')
 
 
 
+# Reading JSON data into a pandas DataFrame
+df = pd.read_json(json_export_name)
+
+# Printing the DataFrame
+print(df)
 
 
