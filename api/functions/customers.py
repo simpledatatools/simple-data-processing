@@ -16,7 +16,7 @@ def get_customer(app_id, customer_id):
             "Authorization" : API_KEY
         }
     )
-
+    
     if not check_status(response):
         return None
 
