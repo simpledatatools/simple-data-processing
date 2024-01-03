@@ -13,19 +13,17 @@ from api.settings.imports import *
 from api.settings.utils import *
 
 
-# customers
-'''
+# profiles
 filters = {}
-customers = get_customers(app_id, filters=filters)
-for customer in customers:
-   print(customer)
+profiles = get_profiles(app_id, filters=filters)
+for profile in profiles:
+   print(profile)
 
-'''
-# One customer
-customer_id = 'bYLblf5XjTCSNQa4'
-customer = get_customer(app_id, customer_id)
-if customer:
-    print(customer)
+# One profile
+profile_id = 'bYLblf5XjTCSNQa4'
+profile = get_profile(app_id, profile_id)
+if profile:
+    print(profile)
 
 '''
 app_id = 't9wH6RI5HnOFJcsQ'

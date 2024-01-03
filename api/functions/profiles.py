@@ -4,10 +4,10 @@ import json
 from api.settings.vars import *
 from api.settings.utils import *
 
-def get_customer(app_id, customer_id):
+def get_profile(app_id, profile_id):
 
     # # Request Url
-    url = BASE_URL + '/apps/' + app_id + '/customers/' + customer_id
+    url = BASE_URL + '/apps/' + app_id + '/profiles/' + profile_id
 
     # Request
     response = requests.get(
@@ -23,15 +23,15 @@ def get_customer(app_id, customer_id):
     # Response
     else:
         data = response.json()
-        customer = data['customer']
+        profile = data['profile']
 
-        return customer
+        return profile
 
 
-def get_customers(app_id, filters=None):
+def get_profiles(app_id, filters=None):
     
     # # Request Url
-    url = BASE_URL + '/apps/' + app_id + '/customers/'
+    url = BASE_URL + '/apps/' + app_id + '/profiles/'
 
     # Filters
     page = None
@@ -62,7 +62,7 @@ def get_customers(app_id, filters=None):
     # Response
     else:
         data = response.json()
-        customers = data['customers']
+        profiles = data['profiles']
 
         line(top=1,bottom=1)
 
@@ -71,13 +71,13 @@ def get_customers(app_id, filters=None):
         
         line(top=1,bottom=1)
 
-        return customers
+        return profiles
     
 
-def add_customer(app_id, data):
-
+def add_profile(app_id, data):
+    
     # # Request Url
-    url = BASE_URL + '/apps/' + app_id + '/customers/add/'
+    url = BASE_URL + '/apps/' + app_id + '/profiles/add/'
 
     # Request
     response = requests.post(
@@ -94,15 +94,15 @@ def add_customer(app_id, data):
     # Response
     else:
         data = response.json()
-        customer = data['customer']
+        profile = data['profile']
 
-        return customer
+        return profile
 
 
-def update_customer(app_id, customer_id, data):
+def update_profile(app_id, profile_id, data):
 
     # # Request Url
-    url = BASE_URL + '/apps/' + app_id + '/customers/' + customer_id + '/update/'
+    url = BASE_URL + '/apps/' + app_id + '/profiles/' + profile_id + '/update/'
 
     # Request
     response = requests.put(
@@ -119,15 +119,15 @@ def update_customer(app_id, customer_id, data):
     # Response
     else:
         data = response.json()
-        customer = data['customer']
+        profile = data['profile']
 
-        return customer
+        return profile
 
 
-def archive_customer(app_id, customer_id):
+def archive_profile(app_id, profile_id):
 
     # # Request Url
-    url = BASE_URL + '/apps/' + app_id + '/customers/' + customer_id + '/archive/'
+    url = BASE_URL + '/apps/' + app_id + '/profiles/' + profile_id + '/archive/'
 
     # Request
     response = requests.put(
@@ -145,7 +145,7 @@ def archive_customer(app_id, customer_id):
         data = response.json()
 
         line(top=1,bottom=1)
-        print(customer_id + ' --> Archived ')
+        print(profile_id + ' --> Archived ')
         line(top=1,bottom=1)
 
         return data

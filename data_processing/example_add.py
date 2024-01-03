@@ -9,11 +9,11 @@ sys.path.append("..")
 from api.settings.imports import *
 from api.settings.utils import *
 
-# Adding a customer
+# Adding a profile
 data = {
-    'name': 'API Customer 1'
+    'name': 'API profile 1'
 }
-customer = add_customer(app_id, data)
-print(customer)
+profile = add_profile(app_id, data)
+print(profile)
         
     

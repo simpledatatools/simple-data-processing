@@ -9,8 +9,8 @@ sys.path.append("..")
 from api.settings.imports import *
 from api.settings.utils import *
 
-# Adding a customer
-customer_id = 'bYLblf5XjTCSNQa4'
-customer = archive_customer(app_id, customer_id)
+# Adding a profile
+profile_id = 'bYLblf5XjTCSNQa4'
+profile = archive_profile(app_id, profile_id)
         
     

@@ -21,12 +21,12 @@ import pandas as pd
 
 export_records = []
 
-# customers
+# profiles
 filters = {}
-customers = get_customers(app_id, filters=filters)
-for customer in customers:
-   print(customer)
-   export_records.append(customer)
+profiles = get_profiles(app_id, filters=filters)
+for profile in profiles:
+   print(profile)
+   export_records.append(profile)
 
 
 # Exporting to Excel
@@ -36,21 +36,21 @@ book = Workbook()
 records = book.create_sheet("Records")
 records.title = "Records"
 
-records.cell(1,1).value = 'Customer Id'
+records.cell(1,1).value = 'profile Id'
 records.cell(1,2).value = 'Name'
 records.cell(1,3).value = 'Something Else'
 
 current_row = 1
 for item, record in enumerate(export_records):
 
-    customer_id = record['customer_id']
+    profile_id = record['profile_id']
     name = record['name']
     something_else = 'Something else ' + randomstr()
 
     # Export the record
     current_row = current_row + 1
     row = current_row
-    records.cell(row=row, column=1).value = customer_id
+    records.cell(row=row, column=1).value = profile_id
     records.cell(row=row, column=2).value = name
     records.cell(row=row, column=3).value = something_else
 
@@ -65,7 +65,7 @@ print('Exported Excel')
 # Exporting to CSV
 
 # Headers
-headers = ['Customer Id', 'Name', 'Something Else']
+headers = ['profile Id', 'Name', 'Something Else']
 
 # File name
 csv_export_name = 'Export_' + randomstr() + '.csv'
@@ -77,7 +77,7 @@ with open(csv_export_name, mode='w', newline='', encoding='utf-8') as file:
     writer.writeheader()
     for record in export_records:
         writer.writerow({
-            'Customer Id': record['customer_id'],
+            'profile Id': record['profile_id'],
             'Name': record['name'],
             'Something Else': 'Something else ' + randomstr()
         })
@@ -88,7 +88,7 @@ print('Exported CSV')
 # Exporting to JSON
 
 # Modify each record for JSON format if necessary
-json_records = [{'customer_id': rec['customer_id'], 'name': rec['name'], 'something_else': 'Something else ' + randomstr()} for rec in export_records]
+json_records = [{'profile_id': rec['profile_id'], 'name': rec['name'], 'something_else': 'Something else ' + randomstr()} for rec in export_records]
 
 # File name
 json_export_name = 'Export_' + randomstr() + '.json'
