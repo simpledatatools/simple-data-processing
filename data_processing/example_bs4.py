@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 # Folder containing your HTML files
-folder_path = '../data_files/_original_files/'
+folder_path = '../data_files/_original_files/html/'
 
 # Function to parse an HTML file and extract profile info
 def parse_html(file_path):
